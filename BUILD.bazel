@@ -1,0 +1,7 @@
+load("//:rules.bzl", "ruff_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+ruff_binary(name = "ruff")
+
+toolchain_type(name = "toolchain_type")
