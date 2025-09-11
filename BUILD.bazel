@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 load("//:rules.bzl", "ruff_binary")
 
 package(default_visibility = ["//visibility:public"])

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 def _ruff_binary(ctx):
     info = ctx.toolchains["//:toolchain_type"].ruff_prebuilt_info
     ruff_executable = info.ruff_executable

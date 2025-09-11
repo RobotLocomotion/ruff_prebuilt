@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 module(
     name = "ruff_prebuilt",
     version = "0.0.0.1",
