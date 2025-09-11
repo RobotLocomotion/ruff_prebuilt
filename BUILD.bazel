@@ -7,3 +7,8 @@ package(default_visibility = ["//visibility:public"])
 ruff_binary(name = "ruff")
 
 toolchain_type(name = "toolchain_type")
+
+filegroup(
+    name = "versions",
+    srcs = ["versions.json"],
+)

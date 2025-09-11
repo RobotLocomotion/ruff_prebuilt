@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: MIT
+
+load("@rules_python//python:py_binary.bzl", "py_binary")
+
+package(default_visibility = ["//visibility:private"])
+
+py_binary(
+    name = "versions",
+    srcs = ["versions.py"],
+    data = ["//:versions"],
+    deps = ["@rules_python//python/runfiles"],
+)
