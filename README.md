@@ -14,8 +14,8 @@ bazel_dep(
 )
 archive_override(
     module_name = "ruff_prebuilt",
-    integrity = "sha256-0000000000000000000000000000000000000000000=",
-    strip_prefix = "ruff_prebuilt-GIT_SHA",
-    url = "https://github.com/RobotLocomotion/ruff_prebuilt/archive/GIT_SHA.tar.gz",
+    integrity = "sha256-if1EuMaZTepzAZ602iehkxgLNLhaErgtAeti1RVNoR0=",
+    strip_prefix = "ruff_prebuilt-0.13.0.1",
+    url = "https://github.com/RobotLocomotion/ruff_prebuilt/releases/download/0.13.0.1/ruff_prebuilt-0.13.0.1.tar.gz",
 )
 ```
