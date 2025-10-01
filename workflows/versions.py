@@ -97,7 +97,7 @@ def main():
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    subparsers = parser.add_subparsers()
+    subparsers = parser.add_subparsers(required=True)
     parser_add = subparsers.add_parser(
         "add",
         help="Adds a new version to the database (or overwrites the existing one).",
