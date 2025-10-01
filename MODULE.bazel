@@ -31,6 +31,6 @@ bazel_dep(
 )
 bazel_dep(
     name = "rules_python",
-    version = "1.6.0",
+    version = "1.6.3",
     dev_dependency = True,
 )
