@@ -9,8 +9,8 @@ for the `ruff` executable.
 ```bzl
 bazel_dep(
     name = "ruff_prebuilt",
-    repo_name = "ruff",
     dev_dependency = True,
+    repo_name = "ruff",
 )
 archive_override(
     module_name = "ruff_prebuilt",

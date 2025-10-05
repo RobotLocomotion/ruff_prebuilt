@@ -1,3 +1,4 @@
 # SPDX-License-Identifier: MIT
 
 /MODULE.bazel.lock
+/example/MODULE.bazel.lock

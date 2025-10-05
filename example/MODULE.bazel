@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: MIT
+
+module(name = "example")
+
+bazel_dep(name = "rules_shell", version = "0.6.1")
+
+bazel_dep(
+    name = "ruff_prebuilt",
+    dev_dependency = True,
+    repo_name = "ruff",
+)
+
+# Typically you would use archive_override() to find ruff_prebuilt, but here we
+# just want to refer to our parent directory.
+local_path_override(
+    module_name = "ruff_prebuilt",
+    path = "..",
+)
