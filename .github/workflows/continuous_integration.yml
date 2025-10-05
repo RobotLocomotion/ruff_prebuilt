@@ -1,0 +1,54 @@
+# SPDX-License-Identifier: MIT
+
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  bazel_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bazel-contrib/setup-bazel@0.15.0
+        with:
+          disk-cache: continuous_integration_bazel_build
+          bazelisk-cache: true
+          external-cache: true
+          repository-cache: true
+      - name: Bazel Build
+        run: |
+          bazel build //...
+  buildifier_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bazel-contrib/setup-bazel@0.15.0
+        with:
+          disk-cache: continuous_integration_buildifier_check
+          bazelisk-cache: true
+          external-cache: true
+          repository-cache: true
+      - name: Buildifier Check
+        run: |
+          bazel run -- @buildifier --mode=check $(pwd)/*.b*z*l $(pwd)/example/*.b*z*l $(pwd)/workflows/*.b*z*l
+  example_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bazel-contrib/setup-bazel@0.15.0
+        with:
+          module-root: "example"
+          disk-cache: continuous_integration_example_test
+          bazelisk-cache: true
+          external-cache: true
+          repository-cache: true
+      - name: Example Bazel Test
+        working-directory: "example"
+        run: |
+          bazel test //...
