@@ -2,7 +2,7 @@
 
 module(
     name = "ruff_prebuilt",
-    version = "0.0.0",
+    version = "0.0.0.0",
     bazel_compatibility = [">=8.0.1"],
     compatibility_level = 1,
 )
@@ -28,6 +28,11 @@ bazel_dep(
     version = "8.2.0.2",
     dev_dependency = True,
     repo_name = "buildifier",
+)
+bazel_dep(
+    name = "rules_pkg",
+    version = "1.1.0",
+    dev_dependency = True,
 )
 bazel_dep(
     name = "rules_python",

@@ -9,6 +9,24 @@ ruff_binary(name = "ruff")
 toolchain_type(name = "toolchain_type")
 
 filegroup(
+    name = "readme",
+    srcs = ["README.md"],
+)
+
+filegroup(
     name = "versions",
     srcs = ["versions.json"],
+)
+
+filegroup(
+    name = "source_archive_contents",
+    srcs = glob(
+        [
+            "LICENSE*",
+            "*.bazel",
+            "*.bzl",
+            "*.json",
+        ],
+        allow_empty = False,
+    ),
 )

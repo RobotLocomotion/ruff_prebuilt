@@ -1,12 +1,47 @@
 # SPDX-License-Identifier: MIT
 
+load("@rules_pkg//pkg:tar.bzl", "pkg_tar")
 load("@rules_python//python:py_binary.bzl", "py_binary")
+load(":module_version.bzl", "module_version")
 
 package(default_visibility = ["//visibility:private"])
+
+# Tools for maintaining the lockfile.
 
 py_binary(
     name = "versions",
     srcs = ["versions.py"],
     data = ["//:versions"],
+    deps = ["@rules_python//python/runfiles"],
+)
+
+# Tools for tagging releases.
+
+alias(
+    name = "buildozer",
+    actual = "@buildifier//:buildozer",
+)
+
+VERSION = module_version()
+
+PREFIX = "ruff_prebuilt-{}".format(VERSION)
+
+pkg_tar(
+    name = "source_archive",
+    srcs = ["//:source_archive_contents"],
+    extension = "tar.gz",
+    mode = "0444",
+    package_dir = PREFIX,
+    package_file_name = "{}.tar.gz".format(PREFIX),
+    stamp = -1,
+)
+
+py_binary(
+    name = "release",
+    srcs = ["release.py"],
+    data = [
+        "//:readme",
+        "//:versions",
+    ],
     deps = ["@rules_python//python/runfiles"],
 )

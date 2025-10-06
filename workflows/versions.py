@@ -1,6 +1,5 @@
-"""
-Automates upkeep of version.json.
-"""
+# SPDX-License-Identifier: MIT
+"""Automates upkeep of version.json."""
 
 import argparse
 import base64
