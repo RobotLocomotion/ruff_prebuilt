@@ -1,5 +1,5 @@
 {
- "current": "0.13.3",
+ "current": "0.14.0",
  "available": {
   "0.8.6": {
    "downloads": {
@@ -650,6 +650,91 @@
      "strip_prefix": "ruff-x86_64-unknown-linux-gnu",
      "urls": [
       "https://github.com/astral-sh/ruff/releases/download/0.13.3/ruff-x86_64-unknown-linux-gnu.tar.gz"
+     ]
+    }
+   }
+  },
+  "0.14.0": {
+   "downloads": {
+    "ruff-aarch64-apple-darwin.tar.gz": {
+     "cpu": "aarch64",
+     "integrity": "sha256-C3wZPVxF7aAiJnIOt1I5+r7KmV1aDrODD9KXPKowMOw=",
+     "os": "macos",
+     "strip_prefix": "ruff-aarch64-apple-darwin",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-aarch64-apple-darwin.tar.gz"
+     ]
+    },
+    "ruff-aarch64-unknown-linux-gnu.tar.gz": {
+     "cpu": "aarch64",
+     "integrity": "sha256-YPw7RkpyNFa6G8jNkdKYBnU8iF9y4mrGe3GM7ms1qso=",
+     "os": "linux",
+     "strip_prefix": "ruff-aarch64-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-aarch64-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-armv7-unknown-linux-gnueabihf.tar.gz": {
+     "cpu": "armv7",
+     "integrity": "sha256-mU8CmpJzc9kDkxl3WXGuBKrwfP4rLQ7tLh9IF0N0Qdw=",
+     "os": "linux",
+     "strip_prefix": "ruff-armv7-unknown-linux-gnueabihf",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-armv7-unknown-linux-gnueabihf.tar.gz"
+     ]
+    },
+    "ruff-i686-unknown-linux-gnu.tar.gz": {
+     "cpu": "x86_32",
+     "integrity": "sha256-UAWQfFEbRV/29heAXd1jY+ZIJA/mORNPkxkOjCBJbHU=",
+     "os": "linux",
+     "strip_prefix": "ruff-i686-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-i686-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-powerpc64le-unknown-linux-gnu.tar.gz": {
+     "cpu": "ppc64le",
+     "integrity": "sha256-tm83bXoZgIq1dg+Ywc31d+fatmY0BDf7ZlqGO69wHAI=",
+     "os": "linux",
+     "strip_prefix": "ruff-powerpc64le-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-powerpc64le-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-riscv64gc-unknown-linux-gnu.tar.gz": {
+     "cpu": "riscv64",
+     "integrity": "sha256-cSajbTm1jSu0WiQeSQxbb55vnzKICgxQ9l9lRbc7Vww=",
+     "os": "linux",
+     "strip_prefix": "ruff-riscv64gc-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-riscv64gc-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-s390x-unknown-linux-gnu.tar.gz": {
+     "cpu": "s390x",
+     "integrity": "sha256-1hYM2hU4Du2AxFErTFd+EF4/AKWm1uXF9tzBGZqROWo=",
+     "os": "linux",
+     "strip_prefix": "ruff-s390x-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-s390x-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-x86_64-apple-darwin.tar.gz": {
+     "cpu": "x86_64",
+     "integrity": "sha256-iArgRrQ16zBs1VenSB7tbaRjuF8oO6HyweKtfBOe1sU=",
+     "os": "macos",
+     "strip_prefix": "ruff-x86_64-apple-darwin",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-x86_64-apple-darwin.tar.gz"
+     ]
+    },
+    "ruff-x86_64-unknown-linux-gnu.tar.gz": {
+     "cpu": "x86_64",
+     "integrity": "sha256-KP4G9wDK+Z7uI1+Q5uNJ9It/mksNQuPuWzaG+SWWSaM=",
+     "os": "linux",
+     "strip_prefix": "ruff-x86_64-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-x86_64-unknown-linux-gnu.tar.gz"
      ]
     }
    }
