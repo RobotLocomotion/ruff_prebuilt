@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 RuffPrebuiltInfo = provider(
-    doc = "XXX",
+    doc = "The provider associated with our ruff toolchain.",
     fields = ["ruff_executable"],
 )
 

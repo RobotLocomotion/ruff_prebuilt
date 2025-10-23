@@ -27,7 +27,7 @@ _toolchain_repository_rule = repository_rule(
     implementation = _toolchain_repository_rule_impl,
     attrs = {
         "repositories": attr.string(
-            doc = "XXX",
+            doc = "JSON-encoded dictionary of (`repo_name`, `details`) items that communicates the repositories to create and the requirement arguments (i.e., `cpu` and `os`) for each.",
             mandatory = True,
         ),
     },
@@ -36,11 +36,11 @@ _toolchain_repository_rule = repository_rule(
 _toolchain_tag_class = tag_class(
     attrs = {
         "name": attr.string(
-            doc = "XXX",
+            doc = "The toolchain name.",
             default = "ruff_prebuilt_toolchain",
         ),
         "versions_json": attr.label(
-            doc = "XXX",
+            doc = "The version lockfile to load for this toolchain.",
             default = "@ruff_prebuilt//:versions.json",
         ),
     },
