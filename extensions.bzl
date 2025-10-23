@@ -11,14 +11,16 @@ def _toolchain_repository_rule_impl(repo_ctx):
     """.replace("\n    ", "\n")
     repositories = json.decode(repo_ctx.attr.repositories)
     for repo_name, details in repositories.items():
+        binary_name = "ruff.exe" if details["os"] == "windows" else "ruff"
         build += """
         define_ruff_prebuilt_toolchain(
-            ruff_executable = "@{repo_name}//:ruff",
+            ruff_executable = "@{repo_name}//:{binary_name}",
             cpu = "{cpu}",
             os = "{os}",
         )
         """.replace("\n        ", "\n").format(
             repo_name = repo_name,
+            binary_name = binary_name,
             **details
         )
     repo_ctx.file("BUILD.bazel", build)
@@ -79,7 +81,7 @@ def _per_tag_impl(module_ctx, toolchain_tag):
         )
         http_archive(
             name = repo_name,
-            build_file_content = "exports_files(['ruff'])\n",
+            build_file_content = "exports_files(glob(['**/*']))\n",
             urls = urls,
             integrity = integrity,
             strip_prefix = strip_prefix,

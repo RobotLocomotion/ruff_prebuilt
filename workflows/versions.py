@@ -73,7 +73,10 @@ def _add(args: argparse.Namespace) -> None:
         sha256_url = f"{base_url}/{name}.sha256"
         sha256_hex = _download(sha256_url, encoding="utf-8").split()[0]
         integrity = _sha256_hex_to_integrity(sha256_hex)
-        strip_prefix = Path(Path(name).stem).stem
+        if name.endswith(".tar.gz"):
+            strip_prefix = Path(Path(name).stem).stem
+        else:
+            strip_prefix = None
         url = f"{base_url}/{name}"
         download_spec = dict(
             cpu=cpu,
@@ -97,7 +100,7 @@ def _sync(args: argparse.Namespace) -> None:
     root = json.loads(path.read_text(encoding="utf-8"))
     versions = list(root["available"].keys())
     for i, version in enumerate(versions):
-        print(f"({i+1}/{len(versions)}) Updating {version}")
+        print(f"({i + 1}/{len(versions)}) Updating {version}")
         # N.B. Each call to `_add` will write out the modified versions.json.
         # We don't need to write out any changes ourselves.
         _add(
@@ -123,7 +126,8 @@ def main():
         help="The version number to be added (or updated).",
     )
     parser_add.add_argument(
-        "--set_current", action="store_true",
+        "--set_current",
+        action="store_true",
         help="Sets the new version as current.",
     )
     parser_add.set_defaults(handler=_add)
