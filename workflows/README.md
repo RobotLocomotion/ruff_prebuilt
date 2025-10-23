@@ -8,6 +8,12 @@ $ bazel run -- //workflows:versions add X.Y.Z --set_current
 
 If you're adding a back-dated version, don't pass `--set_current`.
 
+# Re-syncing artifacts for all existing versions
+
+```console
+$ bazel run -- //workflows:versions sync
+```
+
 # Release
 
 ```console

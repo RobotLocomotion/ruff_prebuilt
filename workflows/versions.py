@@ -12,13 +12,16 @@ from python import runfiles
 # Maps from rust triples to @platforms//cpu and @platforms//os constants.
 _TRIPLE_TO_CPU_OS = {
     "aarch64-apple-darwin": ("aarch64", "macos"),
+    "aarch64-pc-windows-msvc": ("aarch64", "windows"),
     "aarch64-unknown-linux-gnu": ("aarch64", "linux"),
     "armv7-unknown-linux-gnueabihf": ("armv7", "linux"),
+    "i686-pc-windows-msvc": ("x86_32", "windows"),
     "i686-unknown-linux-gnu": ("x86_32", "linux"),
     "powerpc64le-unknown-linux-gnu": ("ppc64le", "linux"),
     "riscv64gc-unknown-linux-gnu": ("riscv64", "linux"),
     "s390x-unknown-linux-gnu": ("s390x", "linux"),
     "x86_64-apple-darwin": ("x86_64", "macos"),
+    "x86_64-pc-windows-msvc": ("x86_64", "windows"),
     "x86_64-unknown-linux-gnu": ("x86_64", "linux"),
 }
 
@@ -59,7 +62,7 @@ def _add(args: argparse.Namespace) -> None:
     download_specs = {}
     for artifact in manifest["artifacts"].values():
         name = artifact["name"]
-        if not name.endswith(".tar.gz"):
+        if not (name.endswith(".tar.gz") or name.endswith(".zip")):
             continue
         if "target_triples" not in artifact:
             continue
@@ -90,7 +93,19 @@ def _add(args: argparse.Namespace) -> None:
 
 
 def _sync(args: argparse.Namespace) -> None:
-    raise NotImplementedError()
+    path = _versions_path()
+    root = json.loads(path.read_text(encoding="utf-8"))
+    versions = list(root["available"].keys())
+    for i, version in enumerate(versions):
+        print(f"({i+1}/{len(versions)}) Updating {version}")
+        # N.B. Each call to `_add` will write out the modified versions.json.
+        # We don't need to write out any changes ourselves.
+        _add(
+            args=argparse.Namespace(
+                version=version,
+                set_current=False,
+            ),
+        )
 
 
 def main():
