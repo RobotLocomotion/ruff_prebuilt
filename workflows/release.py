@@ -2,8 +2,6 @@
 """Automates the release process."""
 
 import argparse
-import base64
-import hashlib
 import json
 from pathlib import Path
 import re
@@ -64,8 +62,8 @@ def _reset_module_version() -> None:
     _set_module_version(module_version="0.0.0.0")
 
 
-def _make_source_tarball(*, module_version) -> str:
-    """Creates a source tarball on disk, and returns its `integrity` value."""
+def _make_source_tarball(*, module_version) -> None:
+    """Creates a source tarball on disk."""
     # Create the archive.
     subprocess.check_call(
         [
@@ -93,26 +91,12 @@ def _make_source_tarball(*, module_version) -> str:
     buried_output_path = _source_tree() / Path(output_path_str.strip())
     output_path = _source_tree() / buried_output_path.name
     shutil.copyfile(buried_output_path, output_path)
-    # Compute its checksum.
-    hasher = hashlib.sha256()
-    hasher.update(output_path.read_bytes())
-    digest = base64.b64encode(hasher.digest()).decode("utf-8")
-    return f"sha256-{digest}"
 
 
-def _update_readme_example(*, module_version, integrity) -> None:
+def _update_readme_example(*, module_version) -> None:
     """Updates README.md stanze for example downstream use."""
     path = _readme_path()
     lines = path.read_text(encoding="utf-8").splitlines()
-
-    # Replace `integrity`.
-    num_matches = 0
-    for i, line in enumerate(lines):
-        if line.startswith("    integrity = "):
-            num_matches += 1
-            new_line = f'    integrity = "{integrity}",'
-            lines[i] = new_line
-    assert num_matches == 1, num_matches
 
     # Replace raw version numbers.
     num_matches = 0
@@ -121,7 +105,7 @@ def _update_readme_example(*, module_version, integrity) -> None:
         if new_line != line:
             num_matches += 1
             lines[i] = new_line
-    assert num_matches == 2, num_matches
+    assert num_matches == 1, num_matches
 
     # Write back to the file.
     new_content = "\n".join(lines) + "\n"
@@ -147,8 +131,8 @@ def main():
     )
     _ = parser.parse_args()
     module_version = _sync_module_version()
-    integrity = _make_source_tarball(module_version=module_version)
-    _update_readme_example(module_version=module_version, integrity=integrity)
+    _make_source_tarball(module_version=module_version)
+    _update_readme_example(module_version=module_version)
     _commit(message=f"Release {module_version}")
     _reset_module_version()
     _commit(message="Revert back to main branch version numbering")
