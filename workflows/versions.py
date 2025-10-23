@@ -83,6 +83,8 @@ def _add(args: argparse.Namespace) -> None:
 
     def _edits(root):
         root["available"][version] = dict(downloads=download_specs)
+        if args.set_current:
+            root["current"] = version
 
     _rewrite_versions_json(_edits)
 
@@ -104,6 +106,10 @@ def main():
     parser_add.add_argument(
         "version",
         help="The version number to be added (or updated).",
+    )
+    parser_add.add_argument(
+        "--set_current", action="store_true",
+        help="Sets the new version as current.",
     )
     parser_add.set_defaults(handler=_add)
     parser_sync = subparsers.add_parser(
