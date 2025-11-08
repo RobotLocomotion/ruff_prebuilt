@@ -2,7 +2,7 @@
 
 module(
     name = "ruff_prebuilt",
-    version = "0.14.4.2",
+    version = "0.0.0.0",
     bazel_compatibility = [">=8.0.1"],
     compatibility_level = 1,
 )
