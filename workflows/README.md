@@ -22,3 +22,7 @@ $ bazel run -- //workflows:release
 
 Then use the GitHub UI to tag the release and attach the source archive (tar.gz)
 that was saved to the root of your source tree.
+
+Open the BCR automation action
+  https://github.com/RobotLocomotion/ruff_prebuilt/actions/workflows/publish.yaml
+and select "Run workflow" and type in the tag name (version number).
