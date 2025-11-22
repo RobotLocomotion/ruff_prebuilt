@@ -25,7 +25,7 @@ register_toolchains("@ruff_prebuilt_toolchain//:all")
 #  bazel run -- @buildifier --mode=fix $(pwd)/*.b*z*l $(pwd)/workflows/*.b*z*l
 bazel_dep(
     name = "buildifier_prebuilt",
-    version = "8.2.0.2",
+    version = "8.2.1",
     dev_dependency = True,
     repo_name = "buildifier",
 )
