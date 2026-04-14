@@ -9,7 +9,7 @@ for the `ruff` executable.
 ```bzl
 bazel_dep(
     name = "ruff_prebuilt",
-    version = "0.15.0.1",
+    version = "0.15.10.1",
     dev_dependency = True,
     repo_name = "ruff",
 )
