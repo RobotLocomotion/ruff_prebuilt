@@ -2,6 +2,10 @@
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+# See https://github.com/astral-sh/setup-uv/pull/809 (for uv, but ruff is the same).
+GITHUB_RELEASES_PREFIX = "https://github.com/astral-sh/ruff/releases/download/"
+ASTRAL_MIRROR_PREFIX = "https://releases.astral.sh/github/ruff/releases/download/"
+
 def _toolchain_repository_rule_impl(repo_ctx):
     build = """
     load(
@@ -62,6 +66,15 @@ def _sanitize_chars(name):
             result += "_"
     return result
 
+def _add_mirrors(urls):
+    result = []
+    for url in urls:
+        if url.startswith(GITHUB_RELEASES_PREFIX):
+            suffix = url[len(GITHUB_RELEASES_PREFIX):]
+            result.append(ASTRAL_MIRROR_PREFIX + suffix)
+        result.append(url)
+    return result
+
 def _per_tag_impl(module_ctx, toolchain_tag):
     versions = json.decode(module_ctx.read(toolchain_tag.versions_json))
     version = versions["current"]
@@ -73,7 +86,7 @@ def _per_tag_impl(module_ctx, toolchain_tag):
         os = download["os"]
         integrity = download["integrity"]
         strip_prefix = download["strip_prefix"]
-        urls = download["urls"]
+        urls = _add_mirrors(download["urls"])
         repo_name = "ruff_v{version}_{cpu}_{os}_repo".format(
             version = _sanitize_chars(version),
             os = os,
