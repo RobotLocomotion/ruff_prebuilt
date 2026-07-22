@@ -1,3 +1,5 @@
 # SPDX-License-Identifier: MIT
 
 common:release --stamp --workspace_status_command="$PWD/workflows/stamp.sh"
+
+build --incompatible_default_to_explicit_init_py
