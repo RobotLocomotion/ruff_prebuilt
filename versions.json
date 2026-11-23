@@ -1,5 +1,5 @@
 {
- "current": "0.17.4",
+ "current": "0.17.5",
  "available": {
   "0.8.6": {
    "downloads": {
@@ -6802,6 +6802,118 @@
      "strip_prefix": "ruff-x86_64-unknown-linux-gnu",
      "urls": [
       "https://github.com/astral-sh/ruff/releases/download/0.17.4/ruff-x86_64-unknown-linux-gnu.tar.gz"
+     ]
+    }
+   }
+  },
+  "0.17.5": {
+   "downloads": {
+    "ruff-aarch64-apple-darwin.tar.gz": {
+     "cpu": "aarch64",
+     "integrity": "sha256-T/ravsXF/uHdsu7KwHh//m+hjGZbc9qSWLhCEfQMWCk=",
+     "os": "macos",
+     "strip_prefix": "ruff-aarch64-apple-darwin",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-aarch64-apple-darwin.tar.gz"
+     ]
+    },
+    "ruff-aarch64-pc-windows-msvc.zip": {
+     "cpu": "aarch64",
+     "integrity": "sha256-A3/uS2oXHoHJEPMKYGeFfSVLeNTKV+r67q0whUwVxUM=",
+     "os": "windows",
+     "strip_prefix": null,
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-aarch64-pc-windows-msvc.zip"
+     ]
+    },
+    "ruff-aarch64-unknown-linux-gnu.tar.gz": {
+     "cpu": "aarch64",
+     "integrity": "sha256-TZWdQyKozT7/4R6fxnQ9odu0HNCyR25DO25r/ZpptiY=",
+     "os": "linux",
+     "strip_prefix": "ruff-aarch64-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-aarch64-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-armv7-unknown-linux-gnueabihf.tar.gz": {
+     "cpu": "armv7",
+     "integrity": "sha256-3XjgOZUsi3IFhIVTwIUSmbEI5xa59BTu4djpzp5B0oA=",
+     "os": "linux",
+     "strip_prefix": "ruff-armv7-unknown-linux-gnueabihf",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-armv7-unknown-linux-gnueabihf.tar.gz"
+     ]
+    },
+    "ruff-i686-pc-windows-msvc.zip": {
+     "cpu": "x86_32",
+     "integrity": "sha256-qQkUV3laKdAfa62I1Ga+AJ5xN3pcjKFcqkLcjoUnOmg=",
+     "os": "windows",
+     "strip_prefix": null,
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-i686-pc-windows-msvc.zip"
+     ]
+    },
+    "ruff-i686-unknown-linux-gnu.tar.gz": {
+     "cpu": "x86_32",
+     "integrity": "sha256-mpza2psMitHhmoFp9sAebIRP/vfw5Tkl8jnRln+IAds=",
+     "os": "linux",
+     "strip_prefix": "ruff-i686-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-i686-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-powerpc64le-unknown-linux-gnu.tar.gz": {
+     "cpu": "ppc64le",
+     "integrity": "sha256-224uoaAUnwB4fcRHvDqqhA8fFaIZdB5SbVZYCfNSpaM=",
+     "os": "linux",
+     "strip_prefix": "ruff-powerpc64le-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-powerpc64le-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-riscv64gc-unknown-linux-gnu.tar.gz": {
+     "cpu": "riscv64",
+     "integrity": "sha256-TUQ5hNO++rlZwjCtRnfhlt3oCNNETykdVxFFG4lfFfk=",
+     "os": "linux",
+     "strip_prefix": "ruff-riscv64gc-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-riscv64gc-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-s390x-unknown-linux-gnu.tar.gz": {
+     "cpu": "s390x",
+     "integrity": "sha256-EwQRb7AEfOvOcoqeomdE00+a/1KLKBCqPMM4R53V29Q=",
+     "os": "linux",
+     "strip_prefix": "ruff-s390x-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-s390x-unknown-linux-gnu.tar.gz"
+     ]
+    },
+    "ruff-x86_64-apple-darwin.tar.gz": {
+     "cpu": "x86_64",
+     "integrity": "sha256-iS9whU681w2HOxvug1jP06HjGAOI44UeP9PkodWk390=",
+     "os": "macos",
+     "strip_prefix": "ruff-x86_64-apple-darwin",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-x86_64-apple-darwin.tar.gz"
+     ]
+    },
+    "ruff-x86_64-pc-windows-msvc.zip": {
+     "cpu": "x86_64",
+     "integrity": "sha256-bhKEzk4voOp7SijQlH9Zxj5pg6qLLlsEQCsOWTdkBco=",
+     "os": "windows",
+     "strip_prefix": null,
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-x86_64-pc-windows-msvc.zip"
+     ]
+    },
+    "ruff-x86_64-unknown-linux-gnu.tar.gz": {
+     "cpu": "x86_64",
+     "integrity": "sha256-fSYfyYGnhGaOGen6atQ3v9lbZ/LcJj/B6rh9VNcvzJA=",
+     "os": "linux",
+     "strip_prefix": "ruff-x86_64-unknown-linux-gnu",
+     "urls": [
+      "https://github.com/astral-sh/ruff/releases/download/0.17.5/ruff-x86_64-unknown-linux-gnu.tar.gz"
      ]
     }
    }
